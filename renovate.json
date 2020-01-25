@@ -1,0 +1,40 @@
+{
+  "extends": [
+    ":label(renovate)",
+    ":ignoreModulesAndTests",
+    ":prImmediately",
+    ":prConcurrentLimitNone",
+    ":semanticCommitsDisabled",
+    ":separateMajorReleases",
+    ":separatePatchReleases",
+    ":automergePatch",
+    "group:monorepos",
+    "group:recommended",
+    "helpers:disableTypesNodeMajor",
+    ":timezone(Asia/Tokyo)",
+    "schedule:daily"
+  ],
+  "commitMessagePrefix": "⬆️",
+  "commitMessageAction": "Update",
+  "packageRules": [
+    {
+      "updateTypes": ["pin"],
+      "commitMessagePrefix": "📌",
+      "commitMessageAction": "Pin"
+    },
+    {
+      "updateTypes": ["rollback"],
+      "commitMessagePrefix": "⬇️",
+      "commitMessageAction": "Downgrade"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": ["schedule:weekly"],
+    "prTitle": "Lock file maintenance"
+  },
+  "npm": {
+    "extends": [":automergeTypes"],
+    "postUpdateOptions": ["yarnDedupeHighest"]
+  }
+}
