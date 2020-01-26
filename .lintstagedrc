@@ -20,6 +20,7 @@
     "git add"
   ],
   "*.jsx": [
+    "stylelint --fix",
     "prettier --write",
     "git add"
   ],
@@ -28,10 +29,12 @@
     "git add"
   ],
   "*.tsx": [
+    "stylelint --fix",
     "prettier --write",
     "git add"
   ],
   "*.{css,scss,sass}": [
+    "stylelint --fix",
     "prettier --write",
     "git add"
   ]
