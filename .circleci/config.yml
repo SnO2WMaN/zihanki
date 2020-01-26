@@ -2,11 +2,20 @@ version: 2.1
 
 executors:
   default:
+    environment:
+      TEST_RESULTS: /tmp/test-results
+      ARTIFACTS: /tmp/artifacts
     working_directory: ~
     docker:
       - image: circleci/node:12.14.1
 
 commands:
+  make_folders:
+    steps:
+      - run:
+          command: |
+            mkdir -p $TEST_RESULTS
+            mkdir -p $ARTIFACTS
   restore_dependencies_cache:
     steps:
       - restore_cache:
@@ -49,12 +58,14 @@ jobs:
       name: default
     steps:
       - checkout
+      - make_folders
       - restore_dependencies_cache
       - run: |
           curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
-      - run: fossa analyze
-      - run: fossa test
-
+      - run: fossa analyze  --debug > $ARTIFACTS/fossa-analyze-stdout 2> $ARTIFACTS/fossa-analyze-stderr
+      - run: fossa test --debug > $ARTIFACTS/fossa-test-stdout 2> $ARTIFACTS/fossa-test-stderr
+      - store_artifacts:
+          path: $ARTIFACTS
 workflows:
   main:
     jobs:
