@@ -1,14 +1,5 @@
 # dependencies
 node_modules
 
-# editor
-.vscode/
-
 # output
 .next/
-
-# misc
-.env*
-
-# debug
-*.log
