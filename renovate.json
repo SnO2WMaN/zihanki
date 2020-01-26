@@ -14,24 +14,28 @@
     ":timezone(Asia/Tokyo)",
     "schedule:daily"
   ],
+  "commitMessage": "{{{commitMessagePrefix}} {{commitMessageTopic}}を{{commitMessageExtra}}に{{commitMessageAction}}}",
   "commitMessagePrefix": "⬆️",
-  "commitMessageAction": "Update",
+  "commitMessageAction": "更新",
+  "commitMessageTopic": "`{{depName}}`",
+  "commitMessageExtra": "{{#if isMajor}}v{{{newMajor}}}{{else}}{{#if isSingleVersion}}v{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}{{/if}}",
   "packageRules": [
     {
       "updateTypes": ["pin"],
       "commitMessagePrefix": "📌",
-      "commitMessageAction": "Pin"
+      "commitMessageAction": "固定"
     },
     {
       "updateTypes": ["rollback"],
       "commitMessagePrefix": "⬇️",
-      "commitMessageAction": "Downgrade"
+      "commitMessageAction": "戻す"
     }
   ],
   "lockFileMaintenance": {
     "enabled": true,
     "extends": ["schedule:weekly"],
-    "prTitle": "Lock file maintenance"
+    "commitMessagePrefix": "👷",
+    "commitMessage": "{{{commitMessagePrefix}} `.lock`ファイルを最新に維持}"
   },
   "npm": {
     "extends": [":automergeTypes"],
