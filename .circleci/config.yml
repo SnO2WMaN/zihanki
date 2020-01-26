@@ -52,7 +52,10 @@ jobs:
     steps:
       - checkout
       - restore_dependencies_cache
-      - run: npm run lint
+      - run: npm run lint:prettier
+      - run: npm run lint:stylelint -- --output-file $ARTIFACTS/lint-stylelint
+      - store_artifacts:
+          path: /tmp/artifacts
   license-check:
     executor:
       name: default
