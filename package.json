@@ -9,8 +9,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "format": "prettier --write **/*.{js,jsx,ts,tsx,json,yml,html,md,mdx,css,scss,sass}",
+    "lint": "concurrently npm:lint:*",
+    "lintfix": "concurrently npm:lintfix:*",
     "lint:stylelint": "stylelint **/*.{css,sass,scss,jsx,tsx}",
-    "lintfix:stylelint": "stylelint **/*.{css,sass,scss,jsx,tsx} --fix"
+    "lintfix:stylelint": "stylelint --fix **/*.{css,sass,scss,jsx,tsx}"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
