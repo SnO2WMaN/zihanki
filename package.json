@@ -8,7 +8,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "lint:stylelint": "stylelint **/*.{css,sass,scss,jsx,tsx}",
+    "lintfix:stylelint": "stylelint **/*.{css,sass,scss,jsx,tsx} --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
