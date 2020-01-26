@@ -9,6 +9,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "format": "prettier --write **/*.{js,jsx,ts,tsx,json,yml,html,md,mdx,css,scss,sass}",
     "lint": "concurrently npm:lint:*",
     "lintfix": "concurrently npm:lintfix:*",
