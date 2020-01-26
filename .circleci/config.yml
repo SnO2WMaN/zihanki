@@ -23,8 +23,6 @@ jobs:
     executor:
       name: default
     steps:
-      - run: |
-          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
       - checkout
       - restore_dependencies_cache
       - run: yarn install --frozen-lockfile
@@ -49,6 +47,8 @@ jobs:
     steps:
       - checkout
       - restore_dependencies_cache
+      - run: |
+          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
       - run: fossa analyze
       - run: fossa test
 
