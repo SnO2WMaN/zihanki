@@ -24,8 +24,8 @@ const StyledComponent = styled(Component)`
   padding: 16px 32px 16px 24px;
   > .icon {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin-right: 16px;
   }
   > p {

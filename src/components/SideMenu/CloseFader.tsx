@@ -23,10 +23,10 @@ const StyledComponent = styled(Component)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
-  background: #000000aa;
-  z-index: 100;
+  background: #000a;
 `
 
 const CloseFader: React.FC<ContainerProps> = props => {

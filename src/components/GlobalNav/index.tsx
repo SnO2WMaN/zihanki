@@ -25,11 +25,11 @@ const StyledComponent = styled(Component)`
   height: 64px;
   box-shadow: 0 8px 32px 8px var(--component-shadow-color);
   .width-fixer {
+    display: flex;
+    align-items: center;
     max-width: 360px;
     height: 100%;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
   }
 `
 

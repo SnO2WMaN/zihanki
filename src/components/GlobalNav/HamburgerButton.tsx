@@ -20,11 +20,11 @@ const Component: React.FC<Props> = ({ className, toggle }) => {
 }
 
 const StyledComponent = styled(Component)`
-  width: 48px;
-  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 48px;
+  height: 48px;
   font-size: 32px;
 `
 

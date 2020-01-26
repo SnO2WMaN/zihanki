@@ -45,12 +45,12 @@ const StyledComponent = styled(Component)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 101;
   min-width: 60vw;
   height: 100vh;
   padding-top: 64px;
   background: white;
   box-shadow: 8px 0 32px 8px var(--component-shadow-color);
-  z-index: 101;
 `
 
 const SideMenu: React.FC<ContainerProps> = props => {
