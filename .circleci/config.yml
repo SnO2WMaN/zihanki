@@ -23,6 +23,7 @@ commands:
             - yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}-{{ .Revision }}
             - yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}
             - yarn-v1-{{ checksum "yarn.lock" }}
+      - run: yarn install --frozen-lockfile
   save_dependencies_cache:
     steps:
       - save_cache:
@@ -37,7 +38,6 @@ jobs:
     steps:
       - checkout
       - restore_dependencies_cache
-      - run: yarn install --frozen-lockfile
       - save_dependencies_cache
   build:
     executor:
