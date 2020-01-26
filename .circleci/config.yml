@@ -51,6 +51,7 @@ jobs:
       name: default
     steps:
       - checkout
+      - make_folders
       - restore_dependencies_cache
       - run: npm run lint:prettier
       - run: npm run lint:stylelint -- --output-file $ARTIFACTS/lint-stylelint
