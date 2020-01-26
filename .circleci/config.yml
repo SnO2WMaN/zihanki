@@ -10,13 +10,16 @@ commands:
   restore_dependencies_cache:
     steps:
       - restore_cache:
-          key: yarn-v1-packages-{{ checksum "yarn.lock" }}
+          keys:
+            - yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}-{{ .Revision }}
+            - yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}
+            - yarn-v1-{{ checksum "yarn.lock" }}
   save_dependencies_cache:
     steps:
       - save_cache:
-          key: yarn-v1-packages-{{ checksum "yarn.lock" }}
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}-{{ .Revision }}
           paths:
-            - node_modules
+            - ~/.cache/yarn
 
 jobs:
   install:
