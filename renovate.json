@@ -36,5 +36,8 @@
   "npm": {
     "extends": [":automergeTypes"],
     "postUpdateOptions": ["yarnDedupeHighest"]
+  },
+  "encrypted": {
+    "npmrc": "PXRTupe0F1EQs51PeYrszn/Ev3fdzrhqcQXXw86EkC+VinkjcDo5wXC4JfyOI4swS0Jz8vmKI6ZN9Dh1OSHV9GPZlicQmMAy9YwUra2HT/DCX8WKD4CC94HNJFpxInIo+pD0A5Y1pjB/NRwAwAipcHozGCFsft6eNxjYpL9/Ah6tFVFj4ZrPAHtcwsF/SL8QuVygUfQYvcPFdU9htCoC6jTw2LmHdYB71dZPL4ekZ6t4HrSm37MEuugnn722eg85XD2C+JFgQUq1d6racNUd8ownIsS3LxF1bAoQJg51Q04PzGA6irupoQRxkMQaipVwdNYH90jeuvYz0wEQ9wMp4A=="
   }
 }
