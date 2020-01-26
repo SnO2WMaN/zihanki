@@ -65,7 +65,7 @@ jobs:
       - run: fossa analyze  --debug > $ARTIFACTS/fossa-analyze-stdout 2> $ARTIFACTS/fossa-analyze-stderr
       - run: fossa test --debug > $ARTIFACTS/fossa-test-stdout 2> $ARTIFACTS/fossa-test-stderr
       - store_artifacts:
-          path: $ARTIFACTS
+          path: /tmp/artifacts
 workflows:
   main:
     jobs:
