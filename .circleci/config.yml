@@ -23,10 +23,19 @@ jobs:
     executor:
       name: default
     steps:
+      - run: |
+          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
       - checkout
       - restore_dependencies_cache
       - run: yarn install --frozen-lockfile
       - save_dependencies_cache
+  build:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_dependencies_cache
+      - run: npm run build
   test:
     executor:
       name: default
@@ -34,11 +43,25 @@ jobs:
       - checkout
       - restore_dependencies_cache
       - run: npm run lint
+  license-check:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_dependencies_cache
+      - run: fossa analyze
+      - run: fossa test
 
 workflows:
   main:
     jobs:
       - install
+      - build:
+          requires:
+            - install
+      - license-check:
+          requires:
+            - build
       - test:
           requires:
             - install
