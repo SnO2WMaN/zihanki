@@ -54,7 +54,11 @@ jobs:
       - make_folders
       - restore_dependencies_cache
       - run: npm run lint:prettier
+      - run: npm run lint:tsc
       - run: npm run lint:stylelint -- --output-file $ARTIFACTS/lint-stylelint
+      - run: npm run lint:eslint -- --format junit --output-file $TEST_RESULTS/lint-eslint
+      - store_test_results:
+          path: /tmp/test-results
       - store_artifacts:
           path: /tmp/artifacts
   license-check:
