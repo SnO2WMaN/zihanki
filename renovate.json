@@ -14,7 +14,7 @@
     ":timezone(Asia/Tokyo)",
     "schedule:daily"
   ],
-  "commitMessage": "{{{commitMessagePrefix}} {{commitMessageTopic}}を{{commitMessageExtra}}に{{commitMessageAction}}}",
+  "commitMessage": "{{commitMessagePrefix}} {{commitMessageTopic}}を{{commitMessageExtra}}に{{commitMessageAction}}",
   "commitMessagePrefix": "⬆️",
   "commitMessageAction": "更新",
   "commitMessageTopic": "`{{depName}}`",
@@ -35,7 +35,7 @@
     "enabled": true,
     "extends": ["schedule:weekly"],
     "commitMessagePrefix": "👷",
-    "commitMessage": "{{{commitMessagePrefix}} `.lock`ファイルを最新に維持}"
+    "commitMessage": "{{commitMessagePrefix}} `.lock`ファイルを最新に維持"
   },
   "npm": {
     "extends": [":automergeTypes"],
