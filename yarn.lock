@@ -33,6 +33,11 @@
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-script-csp/-/toolbox-script-csp-1.1.1.tgz#0b049a1c86c99f300162a10e1b9ce83c6e354a45"
   integrity sha512-gACGfsVKinCy/977FSrlVgo6jxTZ0lcTCvCnRlNwvSOcxJVm+jJR3sP7/F43fpak9Gsq/EwFaatfnNMbunPc+w==
 
+"@arkweid/lefthook@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@arkweid/lefthook/-/lefthook-0.7.0.tgz#521c0d2359180e7ae5b05c57dd9dab7b45e98b5e"
+  integrity sha512-afoWflzWtIQqFiEjR5oNuWzYtkel2g7LySpNL7atTlkYCfzP3VyavgtlGs8FTOFCRMHV+2m1ID2urOX6eUEhgw==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
