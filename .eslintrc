@@ -19,7 +19,7 @@
     "prettier/react",
     "prettier/unicorn"
   ],
-  "plugins": ["simple-import-sort"],
+  "plugins": ["simple-import-sort", "react-hooks"],
   "settings": {
     "import/resolver": {
       "typescript": {
@@ -34,6 +34,9 @@
     "class-methods-use-this": 0,
     "sort-imports": 0,
     "no-empty": [2, { "allowEmptyCatch": true }],
+    // react-hooks
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 1,
     // simple-import-order
     "simple-import-sort/sort": [
       2,
