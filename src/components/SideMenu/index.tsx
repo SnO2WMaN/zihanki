@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
-import { faMoneyBillWave, faCog } from '@fortawesome/pro-solid-svg-icons'
-import Column from './Column'
-import CloseFader from './CloseFader'
+
 import Opener from '../../state/SideMenuManager'
+import Column from './Column'
+import { faCog, faMoneyBillWave } from '@fortawesome/pro-solid-svg-icons'
+import { useTranslation } from 'react-i18next'
 
 type ContainerProps = {}
 type Props = {
@@ -53,9 +53,9 @@ const StyledComponent = styled(Component)`
   box-shadow: 8px 0 32px 8px var(--component-shadow-color);
 `
 
-const SideMenu: React.FC<ContainerProps> = props => {
+const SideMenu: React.FC<ContainerProps> = properties => {
   const opener = Opener.useContainer()
-  return <StyledComponent {...props} active={opener.isOpen} />
+  return <StyledComponent {...properties} active={opener.isOpen} />
 }
 
 export default SideMenu
