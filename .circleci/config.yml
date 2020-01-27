@@ -2,21 +2,34 @@ version: 2.1
 
 executors:
   default:
+    environment:
+      TEST_RESULTS: /tmp/test-results
+      ARTIFACTS: /tmp/artifacts
     working_directory: ~
     docker:
       - image: circleci/node:12.14.1
 
 commands:
+  make_folders:
+    steps:
+      - run:
+          command: |
+            mkdir -p $TEST_RESULTS
+            mkdir -p $ARTIFACTS
   restore_dependencies_cache:
     steps:
       - restore_cache:
-          key: yarn-v1-packages-{{ checksum "yarn.lock" }}
+          keys:
+            - yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}-{{ .Revision }}
+            - yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}
+            - yarn-v1-{{ checksum "yarn.lock" }}
+      - run: yarn install --frozen-lockfile
   save_dependencies_cache:
     steps:
       - save_cache:
-          key: yarn-v1-packages-{{ checksum "yarn.lock" }}
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ .Branch }}-{{ .Revision }}
           paths:
-            - node_modules
+            - ~/.cache/yarn
 
 jobs:
   install:
@@ -25,7 +38,6 @@ jobs:
     steps:
       - checkout
       - restore_dependencies_cache
-      - run: yarn install --frozen-lockfile
       - save_dependencies_cache
   build:
     executor:
@@ -39,19 +51,25 @@ jobs:
       name: default
     steps:
       - checkout
+      - make_folders
       - restore_dependencies_cache
-      - run: npm run lint
+      - run: npm run lint:prettier
+      - run: npm run lint:stylelint -- --output-file $ARTIFACTS/lint-stylelint
+      - store_artifacts:
+          path: /tmp/artifacts
   license-check:
     executor:
       name: default
     steps:
       - checkout
+      - make_folders
       - restore_dependencies_cache
       - run: |
           curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
-      - run: fossa analyze
-      - run: fossa test
-
+      - run: fossa analyze  --debug > $ARTIFACTS/fossa-analyze-stdout 2> $ARTIFACTS/fossa-analyze-stderr
+      - run: fossa test --debug > $ARTIFACTS/fossa-test-stdout 2> $ARTIFACTS/fossa-test-stderr
+      - store_artifacts:
+          path: /tmp/artifacts
 workflows:
   main:
     jobs:
