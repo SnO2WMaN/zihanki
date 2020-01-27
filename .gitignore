@@ -9,3 +9,7 @@ node_modules
 
 # debug
 *.log
+
+# lefthook
+lefthook-local.yml
+/.lefthook-local/
