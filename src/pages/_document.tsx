@@ -1,23 +1,27 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(context) {
     const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    const originalRenderPage = context.renderPage
 
     try {
-      ctx.renderPage = () =>
+      // eslint-disable-next-line no-param-reassign
+      context.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => properties =>
+            sheet.collectStyles(<App {...properties} />),
         })
 
-      const initialProps = await Document.getInitialProps(ctx)
+      const initialProperties = await Document.getInitialProps(context)
       return {
-        ...initialProps,
+        ...initialProperties,
         styles: (
           <>
-            {initialProps.styles}
+            {initialProperties.styles}
             {sheet.getStyleElement()}
           </>
         ),
@@ -26,6 +30,7 @@ export default class MyDocument extends Document {
       sheet.seal()
     }
   }
+
   render() {
     return (
       <Html>

@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react'
+import { useState } from 'react'
+
 import { createContainer } from 'unstated-next'
 
 export default createContainer(() => {

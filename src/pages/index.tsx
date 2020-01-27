@@ -4,9 +4,9 @@ import styled from 'styled-components'
 type ContainerProps = {}
 type Props = {} & ContainerProps
 
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = properties => (
   <>
-    <p>{props.children}</p>
+    <p>{properties.children}</p>
   </>
 )
 
@@ -14,7 +14,7 @@ const StyledComponent = styled(Component)`
   color: var(--text);
 `
 
-const Container: React.FC<ContainerProps> = props => {
+const Container: React.FC<ContainerProps> = () => {
   return <StyledComponent />
 }
 

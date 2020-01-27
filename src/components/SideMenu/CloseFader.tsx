@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import Opener from '../../state/SideMenuManager'
 
 type ContainerProps = {}
@@ -9,7 +10,7 @@ type Props = {
   active: boolean
 } & ContainerProps
 
-const Component: React.FC<Props> = ({ className, children, close, active }) => (
+const Component: React.FC<Props> = ({ className, close, active }) => (
   <div
     className={className}
     onClick={close}
@@ -29,10 +30,14 @@ const StyledComponent = styled(Component)`
   background: #000a;
 `
 
-const CloseFader: React.FC<ContainerProps> = props => {
+const CloseFader: React.FC<ContainerProps> = properties => {
   const opener = Opener.useContainer()
   return (
-    <StyledComponent {...props} active={opener.isOpen} close={opener.close} />
+    <StyledComponent
+      {...properties}
+      active={opener.isOpen}
+      close={opener.close}
+    />
   )
 }
 

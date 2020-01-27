@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useContext, createContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/pro-solid-svg-icons'
 
 import Opener from '../../state/SideMenuManager'
+import { faBars } from '@fortawesome/pro-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type ContainerProps = {}
 type Props = {
@@ -28,7 +28,7 @@ const StyledComponent = styled(Component)`
   font-size: 32px;
 `
 
-const HamburgerButton: React.FC<ContainerProps> = props => {
+const HamburgerButton: React.FC<ContainerProps> = () => {
   const opener = Opener.useContainer()
   const toggle = () => {
     opener.toggle()

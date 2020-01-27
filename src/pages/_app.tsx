@@ -1,14 +1,12 @@
 import React from 'react'
-import App from 'next/app'
 
 import '../styles/global.css'
 import '../locales/i18n'
-
-import SideMenuManager from '../state/SideMenuManager'
-
 import GlobalNav from '../components/GlobalNav'
-import CloseFader from '../components/SideMenu/CloseFader'
 import SideMenu from '../components/SideMenu'
+import CloseFader from '../components/SideMenu/CloseFader'
+import SideMenuManager from '../state/SideMenuManager'
+import App from 'next/app'
 
 export default class MyApp extends App {
   render() {

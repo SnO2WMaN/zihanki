@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/pro-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type ContainerProps = { icon: IconDefinition }
 type Props = { className: string } & ContainerProps
@@ -33,8 +33,8 @@ const StyledComponent = styled(Component)`
   }
 `
 
-const Column: React.FC<ContainerProps> = props => {
-  return <StyledComponent {...props} />
+const Column: React.FC<ContainerProps> = properties => {
+  return <StyledComponent {...properties} />
 }
 
 export default Column

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
-import { faMoneyBillWave, faCog } from '@fortawesome/pro-light-svg-icons'
+
 import HamburgerButton from './HamburgerButton'
 
 type ContainerProps = {}
@@ -33,7 +32,7 @@ const StyledComponent = styled(Component)`
   }
 `
 
-const GlobalNav: React.FC<ContainerProps> = props => {
+const GlobalNav: React.FC<ContainerProps> = () => {
   return <StyledComponent />
 }
 
