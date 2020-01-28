@@ -1,0 +1,11 @@
+{
+  "name": "zihanki",
+  "build": {
+    "env": {
+      "FONTAWESOME_NPM_AUTH_TOKEN": "@fontawesome-npm-auth-token"
+    }
+  },
+  "env": {
+    "FONTAWESOME_NPM_AUTH_TOKEN": "@fontawesome-npm-auth-token"
+  }
+}
