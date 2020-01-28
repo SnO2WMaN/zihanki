@@ -74,6 +74,16 @@ jobs:
       - run: fossa test --debug > $ARTIFACTS/fossa-test-stdout 2> $ARTIFACTS/fossa-test-stderr
       - store_artifacts:
           path: /tmp/artifacts
+  deploy:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - make_folders
+      - restore_dependencies_cache
+      - run: yarn global add now
+      - run: now --prod -t ${ZEIT_TOKEN}
+
 workflows:
   main:
     jobs:
@@ -87,3 +97,11 @@ workflows:
       - test:
           requires:
             - install
+      - deploy:
+          type: approval
+          filters:
+            branches:
+              only: master
+          requires:
+            - license-check
+            - test
