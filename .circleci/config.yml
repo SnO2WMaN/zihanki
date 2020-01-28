@@ -97,7 +97,7 @@ workflows:
       - test:
           requires:
             - install
-      - deploy:
+      - deploy-approval:
           type: approval
           filters:
             branches:
@@ -105,3 +105,6 @@ workflows:
           requires:
             - license-check
             - test
+      - deploy:
+          requires:
+            - deploy-approval
