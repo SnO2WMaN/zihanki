@@ -1,0 +1,16 @@
+{
+  "name": "zihanki",
+  "short_name": "zihanki",
+  "description": "Keep track of drinks bought at vending machines.",
+  "icons": [
+    {
+      "src": "/icons/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "theme_color": "#b1d9ff",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone"
+}
