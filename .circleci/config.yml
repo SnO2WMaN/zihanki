@@ -84,7 +84,14 @@ jobs:
       - run: npx now --prod -t ${ZEIT_TOKEN}
 
 workflows:
-  main:
+  version: 2
+  schedule:
+    triggers:
+      - schedule:
+          cron: '0 0 * * *'
+          filters:
+            branches:
+              only: master
     jobs:
       - install
       - build:
@@ -96,14 +103,23 @@ workflows:
       - test:
           requires:
             - install
-      - deploy-approval:
-          type: approval
-          filters:
-            branches:
-              only: master
-          requires:
-            - license-check
-            - test
       - deploy:
           requires:
-            - deploy-approval
+            - build
+            - license-check
+            - test
+  main:
+    jobs:
+      - install:
+          filters:
+            branches:
+              ignore: master
+      - build:
+          requires:
+            - install
+      - license-check:
+          requires:
+            - build
+      - test:
+          requires:
+            - install
