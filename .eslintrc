@@ -76,7 +76,7 @@
       }
     },
     {
-      "files": ["next.config.js"],
+      "files": ["next.config.js", "bin/*.js"],
       "rules": {
         "@typescript-eslint/no-var-requires": 0
       }
