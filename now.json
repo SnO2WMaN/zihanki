@@ -1,11 +1,28 @@
 {
   "name": "zihanki",
+  "version": 2,
+  "env": {
+    "FONTAWESOME_NPM_AUTH_TOKEN": "@fontawesome-npm-auth-token"
+  },
   "build": {
     "env": {
       "FONTAWESOME_NPM_AUTH_TOKEN": "@fontawesome-npm-auth-token"
     }
   },
-  "env": {
-    "FONTAWESOME_NPM_AUTH_TOKEN": "@fontawesome-npm-auth-token"
-  }
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/service-worker.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    }
+  ]
 }

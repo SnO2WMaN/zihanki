@@ -1,7 +1,7 @@
 {
   "name": "zihanki",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Keep track of drinks bought at vending machines",
   "author": {
     "name": "SnO2WMaN",
     "email": "sno2wman.official@gmail.com"
@@ -9,6 +9,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "run-s -cnsl prebuild:*",
+    "prebuild:icon": "node bin/icon.js",
     "build": "next build",
     "start": "next start",
     "format": "npm run lint:prettier -- --write",
@@ -33,9 +35,11 @@
     "i18next-browser-languagedetector": "^4.0.1",
     "minireset.css": "^0.0.6",
     "next": "^9.2.1",
+    "next-offline": "^5.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-i18next": "^11.3.1",
+    "sharp": "^0.24.0",
     "styled-components": "^5.0.0",
     "unstated-next": "^1.1.0"
   },
