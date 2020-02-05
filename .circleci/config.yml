@@ -120,6 +120,10 @@ workflows:
       - license-check:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - /renovate-.*/
       - test:
           requires:
             - install
