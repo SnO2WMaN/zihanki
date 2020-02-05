@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"
           />
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />
