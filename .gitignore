@@ -13,3 +13,6 @@ node_modules
 # lefthook
 lefthook-local.yml
 /.lefthook-local/
+
+# now
+.now

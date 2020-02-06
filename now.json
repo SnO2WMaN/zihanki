@@ -1,5 +1,4 @@
 {
-  "name": "zihanki",
   "version": 2,
   "env": {
     "FONTAWESOME_NPM_AUTH_TOKEN": "@fontawesome-npm-auth-token"

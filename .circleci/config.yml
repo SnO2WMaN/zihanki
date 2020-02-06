@@ -81,7 +81,7 @@ jobs:
       - checkout
       - make_folders
       - restore_dependencies_cache
-      - run: npx now --prod -t ${ZEIT_TOKEN}
+      - run: npx now --prod -t ${ZEIT_TOKEN} --confirm
 
 workflows:
   version: 2
